@@ -1,0 +1,67 @@
+/**
+ * Force white background for all sections and cards
+ */
+
+/* Main page background - body and html */
+body.index-page,
+.index-page,
+.index-page body,
+html,
+body {
+  background-color: #ffffff !important;
+  background: #ffffff !important;
+}
+
+/* All sections */
+.section {
+  background-color: #ffffff !important;
+  background: #ffffff !important;
+}
+
+/* Services section specifically */
+.services.section {
+  background-color: #ffffff !important;
+  background: #ffffff !important;
+}
+
+/* Service cards */
+.services .service-card {
+  background-color: #ffffff !important;
+  background: #ffffff !important;
+}
+
+/* Hero section */
+.hero.section {
+  background-color: #ffffff !important;
+  background: #ffffff !important;
+}
+
+/* Financial section */
+.financial.section {
+  background-color: #ffffff !important;
+  background: #ffffff !important;
+}
+
+/* Contact section */
+.contact.section {
+  background-color: #ffffff !important;
+  background: #ffffff !important;
+}
+
+/* Main container */
+.main {
+  background-color: #ffffff !important;
+  background: #ffffff !important;
+}
+
+/* Override CSS variables at root level */
+:root {
+  --background-color: #ffffff !important;
+  --surface-color: #ffffff !important;
+}
+
+/* Ensure all container elements are white */
+.container,
+.container-fluid {
+  background-color: transparent !important;
+}

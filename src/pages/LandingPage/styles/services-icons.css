@@ -1,0 +1,41 @@
+/**
+ * Services Icons Custom Styles
+ * Gray background with black icon
+ */
+
+.services .service-icon {
+  background: #E5E5E5 !important; /* Gray background */
+  background-color: #E5E5E5 !important;
+  width: 53px !important; /* Reduced from 80px to ~2/3 (53px) */
+  height: 53px !important; /* Reduced from 80px to ~2/3 (53px) */
+}
+
+.services .service-icon i {
+  color: #000000 !important; /* Black icon instead of white */
+  font-size: 24px !important; /* Reduced from 36px to ~2/3 (24px) */
+}
+
+.services .service-card:hover .service-icon {
+  background: #E5E5E5 !important; /* Keep gray on hover */
+  background-color: #E5E5E5 !important;
+}
+
+.services .service-card:hover .service-icon i {
+  color: #000000 !important; /* Keep black on hover */
+}
+
+/* Remove box shadow from service cards */
+.services .service-card {
+  box-shadow: none !important;
+  -webkit-box-shadow: none !important;
+  -moz-box-shadow: none !important;
+  border: none !important;
+}
+
+.services .service-card:hover {
+  box-shadow: none !important;
+  -webkit-box-shadow: none !important;
+  -moz-box-shadow: none !important;
+  border: none !important;
+}
+
