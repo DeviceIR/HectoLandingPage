@@ -36,8 +36,14 @@ const steps = [
     ],
     highlights: [
       { bold: "کافیه فقط ایده‌ت رو تایپ کنی", text: " و خروجی رو تحویل بگیر." },
-      { bold: "دوره کامل و آماده‌ی انتشار", text: " بدون درگیری با جزئیات فنی." },
-      { bold: "هر بخش رو سفارشی کن", text: " تا نتیجه دقیقاً مطابق نیازت باشه." },
+      {
+        bold: "دوره کامل و آماده‌ی انتشار",
+        text: " بدون درگیری با جزئیات فنی.",
+      },
+      {
+        bold: "هر بخش رو سفارشی کن",
+        text: " تا نتیجه دقیقاً مطابق نیازت باشه.",
+      },
     ],
     video: video01,
   },
@@ -48,13 +54,16 @@ const steps = [
       "برای محتوا ایجاد می‌کنه و شما تصمیم می‌گیری محتوای نهایی رو چه کسی ببینه.",
     ],
     highlights: [
-      { bold: "فایل‌هات رو آپلود کن", text: " و ساختار درسی خودکار تحویل بگیر." },
+      {
+        bold: "فایل‌هات رو آپلود کن",
+        text: " و ساختار درسی خودکار تحویل بگیر.",
+      },
       { bold: "خروجی قابل ویرایش", text: " و قابل اشتراک در محیط آموزشی." },
     ],
     video: video02,
   },
   {
-    title: "دستیار هوش مصنوعی (آپشن ۳)",
+    title: "دستیار هوش مصنوعی",
     description: [
       "یه همراه واقعی دقیق در مسیر یادگیری و آموزش که کمک میکنه به تحلیل داده‌های عملکرد کاربران،",
       "مدیریت و ساخت تسک‌های هوشمند، پیشنهاد دوره‌های مناسب که با هر تعامل، دقیق‌تر به تو کمک میکنه.",
@@ -74,19 +83,19 @@ const steps = [
     ],
     video: video04,
   },
-  {
-    title: "فضای چت مخصوص هر تسک",
-    description: [
-      "با هر تسک، یه گفت‌وگوی جدا داری.",
-      "در فضای چت اختصاصی هر تسک، ردِ انجام کار رو دنبال کن و با هماهنگی",
-      "با اعضای تیم‌ت راندمان و سرعت کارهارو بیشتر کن",
-    ],
-    highlights: [
-      { bold: "چت اختصاصی هر تسک", text: " هماهنگی و پیگیری سریع‌تر." },
-      { bold: "تاریخچه شفاف", text: " رد انجام کار همیشه جلوی چشمته." },
-    ],
-    video: video05,
-  },
+  // {
+  //   title: "فضای چت مخصوص هر تسک",
+  //   description: [
+  //     "با هر تسک، یه گفت‌وگوی جدا داری.",
+  //     "در فضای چت اختصاصی هر تسک، ردِ انجام کار رو دنبال کن و با هماهنگی",
+  //     "با اعضای تیم‌ت راندمان و سرعت کارهارو بیشتر کن",
+  //   ],
+  //   highlights: [
+  //     { bold: "چت اختصاصی هر تسک", text: " هماهنگی و پیگیری سریع‌تر." },
+  //     { bold: "تاریخچه شفاف", text: " رد انجام کار همیشه جلوی چشمته." },
+  //   ],
+  //   video: video05,
+  // },
   {
     title: "آمارها و تحلیل‌ها",
     description: [
@@ -118,7 +127,7 @@ const Tutorial = () => {
           }
         });
       },
-      { threshold: 0.45 }
+      { threshold: 0.45 },
     );
 
     videoRefs.current.forEach((videoEl) => {
@@ -130,10 +139,10 @@ const Tutorial = () => {
 
   return (
     <section id="tutorial" className="tutorial section">
-      <div className="container section-title" data-aos="fade-up">
+      {/* <div className="container section-title" data-aos="fade-up">
         <h2>آموزش گام‌به‌گام</h2>
         <p>مروری سریع بر قابلیت‌های اصلی؛ هر گام یک ویدئو و یک توضیح کوتاه.</p>
-      </div>
+      </div> */}
 
       <div className="container">
         {steps.map((step, index) => {
@@ -143,14 +152,30 @@ const Tutorial = () => {
 
           return (
             <div
-              className="tutorial-step row gy-4 align-items-center"
+              className="tutorial-step row  align-items-center "
+              style={{
+                borderRadius: "24px",
+                gap: "20px",
+                flexWrap: "unset",
+                backgroundColor: "#fff",
+              }}
               data-aos="fade-up"
               data-aos-delay={index * 50}
               key={step.title}
             >
-              <div className={textColClass}>
+              <div
+                className={textColClass}
+                style={{
+                  backgroundColor: "#fff",
+                  padding: "24px",
+                  borderRadius: "24px",
+                  // border: "1px solid #e0e0e0",
+                  // boxShadow: "0 0px 50px rgba(0, 0, 0, 0.05)", // subtle shadow
+                  height: "500px",
+                }}
+              >
                 <div className="tutorial-text">
-                  <span className="step-badge">گام {index + 1}</span>
+                  {/* <span className="step-badge">گام {index + 1}</span> */}
                   <h3>{step.title}</h3>
                   <p className="tutorial-description">
                     {Array.isArray(step.description)
@@ -159,7 +184,9 @@ const Tutorial = () => {
                             key={lineIdx}
                             className={
                               "tutorial-description-line" +
-                              (lineIdx >= 2 ? " tutorial-description-line--offset" : "")
+                              (lineIdx >= 2
+                                ? " tutorial-description-line--offset"
+                                : "")
                             }
                           >
                             {line}
@@ -169,9 +196,12 @@ const Tutorial = () => {
                   </p>
 
                   {step.highlights?.length > 0 && (
-                    <ul className="tutorial-highlight-list" aria-label="نکات کلیدی">
+                    <ul className="tutorial-highlight-list">
                       {step.highlights.map((item, itemIdx) => (
-                        <li className="tutorial-highlight-item" key={`${item.bold}-${itemIdx}`}>
+                        <li
+                          className="tutorial-highlight-item"
+                          key={`${item.bold}-${itemIdx}`}
+                        >
                           <span className="tutorial-highlight-icon">
                             <CheckIcon />
                           </span>
@@ -186,9 +216,21 @@ const Tutorial = () => {
                 </div>
               </div>
 
-              <div className={videoColClass}>
-                <div className="tutorial-video">
-                  <div className="video-wrapper">
+              <div
+                className={videoColClass}
+                style={{
+                  // padding: "24px",
+                  // width: "50%",
+                  backgroundColor: "#f5f5f5",
+                  padding: "48px",
+                  borderRadius: "24px",
+                  // border: "1px solid #e0e0e0",
+                  // boxShadow: "0 0px 50px rgba(0, 0, 0, 0.05)", // subtle shadow
+                  height: "500px",
+                }}
+              >
+                <div className="tutorial-video" style={{ height: "404px" }}>
+                  <div className="video-wrapper" style={{ height: "404px" }}>
                     <video
                       ref={(el) => {
                         videoRefs.current[index] = el;
@@ -197,10 +239,13 @@ const Tutorial = () => {
                       playsInline
                       preload="metadata"
                       muted
+                      loop // 👈 THIS
                       controls={false}
                       controlsList="nodownload nofullscreen noremoteplayback"
                       disablePictureInPicture
-                      style={{ pointerEvents: "none" }}
+                      style={{
+                        pointerEvents: "none",
+                      }}
                     />
                   </div>
                 </div>
@@ -214,5 +259,3 @@ const Tutorial = () => {
 };
 
 export default Tutorial;
-
-

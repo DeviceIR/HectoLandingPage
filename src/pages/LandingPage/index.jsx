@@ -44,7 +44,6 @@ export default function LandingPage() {
       delay: 0, // No default delay
     });
 
-
     // Scroll to top on body scroll
     const toggleScrolled = () => {
       const selectBody = document.querySelector("body");
@@ -89,15 +88,15 @@ export default function LandingPage() {
       <Header />
       <main className="main">
         <Hero />
-        <Services />
         <Banner />
         <Tutorial />
         {/* <Library /> */}
         <Financial />
-        <Demo />
         {/* <About /> */}
         {/* <WhyUs /> */}
         {/* <Testimonials /> */}
+        <Services />
+        <Demo />
         <Contact />
       </main>
       <Footer />

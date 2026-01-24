@@ -1,4 +1,4 @@
-import PropTypes from 'prop-types';
+import PropTypes from "prop-types";
 
 /**
  * BranchCard component displays branch information
@@ -14,8 +14,14 @@ const BranchCard = ({ branchData, onLocationClick }) => {
   return (
     <div className="branch-card-container">
       <div className="branch-card-wrapper">
-        <div className="branch-card">
-          <div className="branch-image">
+        <div
+          className="branch-card"
+          style={{ display: "flex", flexDirection: "row" }}
+        >
+          <div
+            className="branch-image"
+            style={{ width: "180px", height: "180px" }}
+          >
             <img src={image} alt={title} />
           </div>
 
@@ -23,13 +29,16 @@ const BranchCard = ({ branchData, onLocationClick }) => {
             <h3>{title}</h3>
             <div className="branch-meta">
               {contactInfo.map((info, index) => (
-                <p key={index}>
+                <p
+                  key={index}
+                  style={{ marginBottom: "0px", fontSize: "16px" }}
+                >
                   <i className={info.icon}></i>
                   {info.text}
                 </p>
               ))}
             </div>
-            <button
+            {/* <button
               type="button"
               className="branch-location-btn"
               style={{ backgroundColor: buttonColor }}
@@ -37,7 +46,7 @@ const BranchCard = ({ branchData, onLocationClick }) => {
               onClick={() => onLocationClick?.(branchData)}
             >
               دریافت لوکیشن
-            </button>
+            </button> */}
           </div>
         </div>
       </div>
@@ -55,11 +64,10 @@ BranchCard.propTypes = {
       PropTypes.shape({
         icon: PropTypes.string.isRequired,
         text: PropTypes.string.isRequired,
-      })
+      }),
     ).isRequired,
   }).isRequired,
   onLocationClick: PropTypes.func,
 };
 
 export default BranchCard;
-

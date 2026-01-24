@@ -21,10 +21,10 @@ const branches = [
         icon: "bi bi-telephone",
         text: "۰۹۲۲۳۸۳۵۳۰۰",
       },
-      {
-        icon: "bi bi-globe",
-        text: "www.hectolms.com | www.hectolms.ir",
-      },
+      // {
+      //   icon: "bi bi-globe",
+      //   text: "www.hectolms.com | www.hectolms.ir",
+      // },
       {
         icon: "bi bi-geo-alt",
         text: "تهرانسر بلوار لاله، خیابان شهید طهماسبی، روبروی کوچه ۳۳ مجمع فرهنگی و هنری پیامبر اعظم (ص)",
@@ -36,7 +36,7 @@ const branches = [
     title: "شعبه بوشهر",
     buttonColor: "#0f7c8c",
     lat: 28.948152424546546, // precise coord provided
-    lng: 50.87475147410805,  // precise coord provided
+    lng: 50.87475147410805, // precise coord provided
     mapLink:
       "https://neshan.org/maps/@28.948152,50.874751,18z?marker=28.948152,50.874751&center=28.948152,50.874751&markerTitle=%D8%B4%D8%B9%D8%A8%D9%87%20%D8%A8%D9%88%D8%B4%D9%87%D8%B1&markerColor=red",
     mapEmbedUrl: "https://balad.ir/embed?p=1zVyXACjYO1ZJY",
@@ -49,10 +49,10 @@ const branches = [
         icon: "bi bi-telephone",
         text: "۰۹۲۲۳۸۳۵۳۰۰ (شنبه تا چهارشنبه ساعت ۸ الی ۱۸)",
       },
-      {
-        icon: "bi bi-instagram",
-        text: "hectolms",
-      },
+      // {
+      //   icon: "bi bi-instagram",
+      //   text: "hectolms",
+      // },
       {
         icon: "bi bi-geo-alt",
         text: "شهرک نیایش، بلوار شهید همتی، بلوار فناوری، پارک علم و فناوری خلیج فارس، ساختمان گلستان",
@@ -62,4 +62,3 @@ const branches = [
 ];
 
 export default branches;
-
