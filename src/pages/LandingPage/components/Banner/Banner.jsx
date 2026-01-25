@@ -13,12 +13,16 @@ const Banner = () => {
         >
           <div className="banner-content">
             <p className="banner-eyebrow">یک پلتفرم، چندین ابزار آموزشی</p>
-            <h3 className="banner-title">با ترکیب هوش مصنوعی و ابزارهای نوین،</h3>
+            <h3 className="banner-title">
+              با ترکیب هوش مصنوعی و ابزارهای نوین،
+            </h3>
             <h3 className="banner-title">
               هر مدل از یادگیری را{" "}
               <span className="banner-highlight">هوشمندتر و شخصی‌تر</span> کن.
             </h3>
-            <h3 className="banner-title">پلتفرم یکپارچه و تعاملی برای مدیریت و یادگیری.</h3>
+            <h3 className="banner-title">
+              پلتفرم یکپارچه و تعاملی برای مدیریت و یادگیری.
+            </h3>
 
             <div className="banner-actions">
               <a className="banner-link primary" href="#hero">
@@ -37,4 +41,3 @@ const Banner = () => {
 };
 
 export default Banner;
-
