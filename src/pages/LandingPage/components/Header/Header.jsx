@@ -63,7 +63,14 @@ const Header = () => {
 
   useEffect(() => {
     // Scroll spy functionality to update active navigation link
-    const sections = ["hero", "services", "tutorial", "financial", "about", "contact"];
+    const sections = [
+      "hero",
+      "services",
+      "tutorial",
+      "financial",
+      "about",
+      "contact",
+    ];
     const headerHeight = document.querySelector("#header")?.offsetHeight || 0;
     const offset = headerHeight + 50; // Offset to account for header and some padding
 
@@ -77,7 +84,7 @@ const Header = () => {
         const section = document.querySelector(`#${sections[i]}`);
         if (section) {
           const sectionTop = section.offsetTop;
-          
+
           // If we've scrolled past the start of this section, it's the active one
           if (scrollPosition >= sectionTop) {
             currentSection = sections[i];
@@ -131,32 +138,51 @@ const Header = () => {
           <i className="mobile-nav-toggle d-lg-none bi bi-list"></i>
           <ul>
             <li>
-              <a href="#hero" className={activeSection === "hero" ? "active" : ""}>
+              <a
+                href="#hero"
+                className={activeSection === "hero" ? "active" : ""}
+              >
                 خانه
               </a>
             </li>
+
             <li>
-              <a href="#services" className={activeSection === "services" ? "active" : ""}>
-                خدمات
-              </a>
-            </li>
-            <li>
-              <a href="#tutorial" className={activeSection === "tutorial" ? "active" : ""}>
+              <a
+                href="#tutorial"
+                className={activeSection === "tutorial" ? "active" : ""}
+              >
                 آموزش
               </a>
             </li>
             <li>
-              <a href="#financial" className={activeSection === "financial" ? "active" : ""}>
+              <a
+                href="#financial"
+                className={activeSection === "financial" ? "active" : ""}
+              >
                 پلن های مالی
               </a>
             </li>
             <li>
-              <a href="#about" className={activeSection === "about" ? "active" : ""}>
-                درباره ما
+              <a
+                href="#services"
+                className={activeSection === "services" ? "active" : ""}
+              >
+                خدمات
               </a>
             </li>
+            {/* <li>
+              <a
+                href="#about"
+                className={activeSection === "about" ? "active" : ""}
+              >
+                درباره ما
+              </a>
+            </li> */}
             <li>
-              <a href="#contact" className={activeSection === "contact" ? "active" : ""}>
+              <a
+                href="#contact"
+                className={activeSection === "contact" ? "active" : ""}
+              >
                 تماس
               </a>
             </li>
@@ -172,4 +198,3 @@ const Header = () => {
 };
 
 export default Header;
-

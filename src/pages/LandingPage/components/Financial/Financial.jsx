@@ -25,11 +25,15 @@ const plans = [
       "ایجاد 3 فضای کار",
       "ساخت 5 گروه کاری",
     ],
-    keyFeatures: ["آمار پایه تسک و محتوا", "صادرات گزارش محدود", "پشتیبانی ایمیلی"],
+    keyFeatures: [
+      "آمار پایه تسک و محتوا",
+      "صادرات گزارش محدود",
+      "پشتیبانی ایمیلی",
+    ],
   },
   {
     badge: "منتخب",
-    name: "پلن اکونومی",
+    name: "پلن پیشرفته",
     price: "389,000",
     highlight: true,
     features: [
@@ -38,11 +42,16 @@ const plans = [
       "ایجاد 7 فضای کار",
       "ساخت 15 گروه کاری",
     ],
-    keyFeatures: ["تمام آمارهای تحلیلی", "رتبه‌بندی پیشرفته", "نمودار حرارتی", "یکپارچه‌سازی با ابزارهای بیرونی"],
+    keyFeatures: [
+      "تمام آمارهای تحلیلی",
+      "رتبه‌بندی پیشرفته",
+      "نمودار حرارتی",
+      "یکپارچه‌سازی با ابزارهای بیرونی",
+    ],
   },
   {
     badge: "سازمانی",
-    name: "پلن پیشرفته",
+    name: "پلن سفارشی/سازمانی",
     price: "989,000",
     features: [
       "کاربران نامحدود",
@@ -50,7 +59,12 @@ const plans = [
       "فضاهای کار نامحدود",
       "ساخت گروه نامحدود",
     ],
-    keyFeatures: ["همه قابلیت‌ها + AI سفارشی", "API و SSO", "گزارش‌های سفارشی BI", "SLA و پشتیبانی ۲۴/۷"],
+    keyFeatures: [
+      "همه قابلیت‌ها + AI سفارشی",
+      "API و SSO",
+      "گزارش‌های سفارشی BI",
+      "SLA و پشتیبانی ۲۴/۷",
+    ],
   },
 ];
 
@@ -65,9 +79,34 @@ const getSlidesPerView = (width = 1440) => {
   return 4;
 };
 
+/**
+ * Get button text based on plan name
+ * @param {string} planName - Name of the plan
+ * @returns {string} Button text
+ */
+const getButtonText = (planName) => {
+  switch (planName) {
+    case "پلن عادی":
+      return "همین حالا شروع کنید";
+    case "پلن سفارشی/سازمانی":
+      return "تماس بگیرید";
+    default:
+      return "اشتراک تهیه کنید";
+  }
+};
+
+/**
+ * Get button href based on plan name
+ * @param {string} planName - Name of the plan
+ * @returns {string} Button href
+ */
+const getButtonHref = (planName) => {
+  return planName === "پلن سفارشی/سازمانی" ? "#contact" : "#signup";
+};
+
 const Financial = () => {
   const [slidesPerView, setSlidesPerView] = useState(() =>
-    typeof window !== "undefined" ? getSlidesPerView(window.innerWidth) : 4
+    typeof window !== "undefined" ? getSlidesPerView(window.innerWidth) : 4,
   );
   const [activeIndex, setActiveIndex] = useState(0);
 
@@ -84,6 +123,10 @@ const Financial = () => {
     };
 
     window.addEventListener("resize", throttledResize);
+
+    // Initial check
+    handleResize();
+
     return () => {
       window.removeEventListener("resize", throttledResize);
       clearTimeout(timeoutId);
@@ -96,12 +139,12 @@ const Financial = () => {
 
   const maxIndex = useMemo(
     () => Math.max(plans.length - slidesPerView, 0),
-    [plans.length, slidesPerView]
+    [plans.length, slidesPerView],
   );
 
   const goToSlide = useCallback(
     (index) => setActiveIndex(Math.min(Math.max(index, 0), maxIndex)),
-    [maxIndex]
+    [maxIndex],
   );
 
   const handleNext = useCallback(() => {
@@ -113,24 +156,37 @@ const Financial = () => {
   }, [activeIndex, maxIndex, goToSlide]);
 
   return (
-    <section id="financial" className="financial section" style={{ overflow: "visible" }}>
+    <section
+      id="financial"
+      className="financial section"
+      style={{ overflow: "visible" }}
+    >
       {/* Section Title */}
       <div className="container section-title">
         <h2>پلن های مالی</h2>
         <p>
-          راهکارهای آموزشی و ویژگی های ما در قالب پلن‌های متنوع، آماده پاسخ گویی به نیاز های شماستر
+          راهکارهای آموزشی و ویژگی های ما در قالب پلن‌های متنوع، آماده پاسخ گویی
+          به نیاز های شماستر
         </p>
       </div>
 
       <div className="container">
-        <div className="financial-slider" style={{ "--slides-per-view": slidesPerView }}>
+        <div
+          className="financial-slider"
+          style={{ "--slides-per-view": slidesPerView }}
+        >
           <div
             className="financial-track"
-            style={{ transform: `translateX(-${(100 / slidesPerView) * activeIndex}%)` }}
+            style={{
+              transform: `translateX(-${(100 / slidesPerView) * activeIndex}%)`,
+              transition: "transform 0.3s ease",
+            }}
           >
-            {plans.map((plan) => (
+            {plans.map((plan, index) => (
               <div className="financial-slide" key={plan.name}>
-                <div className={`financial-card${plan.highlight ? " specialPlane" : ""}`}>
+                <div
+                  className={`financial-card${plan.highlight ? " specialPlane" : ""}`}
+                >
                   {plan.badge && <div className="badge">{plan.badge}</div>}
 
                   <div className="financial-title">
@@ -140,8 +196,9 @@ const Financial = () => {
                         <>
                           <p className="price mb-0">{plan.price}</p>
                           <div className="toman">
-                            <img src={tomanImg} alt="toman" />
+                            <img src={tomanImg} alt="تومان" />
                           </div>
+                          <span className="price-period">/ماه</span>
                         </>
                       ) : (
                         <p className="price mb-0">{plan.priceLabel}</p>
@@ -153,8 +210,11 @@ const Financial = () => {
 
                   <div className="financial-features">
                     <ul className="features-list">
-                      {plan.features.map((feature) => (
-                        <li className="features-item" key={feature}>
+                      {plan.features.map((feature, idx) => (
+                        <li
+                          className="features-item"
+                          key={`${index}-feature-${idx}`}
+                        >
                           <div className="icon-wrapper">
                             <i className="bi bi-patch-check"></i>
                           </div>
@@ -171,8 +231,11 @@ const Financial = () => {
                       <h6 className="fw-bold m-0">ویژگی های کلیدی</h6>
                     </div>
                     <ul className="features-list">
-                      {plan.keyFeatures.map((feature) => (
-                        <li className="features-item" key={feature}>
+                      {plan.keyFeatures.map((feature, idx) => (
+                        <li
+                          className="features-item"
+                          key={`${index}-key-feature-${idx}`}
+                        >
                           <div className="icon-wrapper">
                             <i className="bi bi-patch-check-fill"></i>
                           </div>
@@ -182,39 +245,53 @@ const Financial = () => {
                     </ul>
                   </div>
 
-                  <a 
-                    href="#" 
-                    className="btn btn-primary"
-                    aria-label={`تهیه اشتراک ${plan.name}`}
-                  >
-                    تهیه اشتراک
-                  </a>
+                  <div className="financial-actions mt-auto">
+                    <a
+                      href={getButtonHref(plan.name)}
+                      className={`btn ${plan.highlight ? "btn-primary" : "btn-outline-primary"}`}
+                      aria-label={`تهیه اشتراک ${plan.name}`}
+                    >
+                      {getButtonText(plan.name)}
+                    </a>
+                  </div>
                 </div>
               </div>
             ))}
           </div>
 
-          <div className="financial-nav">
-            <button type="button" className="financial-nav-btn" onClick={handlePrev} aria-label="پلن قبلی">
-              <i className="bi bi-chevron-left" />
-            </button>
+          {maxIndex > 0 && (
+            <div className="financial-nav">
+              <button
+                type="button"
+                className="financial-nav-btn"
+                onClick={handlePrev}
+                aria-label="پلن قبلی"
+              >
+                <i className="bi bi-chevron-left" />
+              </button>
 
-            <div className="financial-dots">
-              {Array.from({ length: maxIndex + 1 }).map((_, idx) => (
-                <button
-                  key={idx}
-                  type="button"
-                  className={`financial-dot ${idx === activeIndex ? "is-active" : ""}`}
-                  aria-label={`رفتن به اسلاید ${idx + 1}`}
-                  onClick={() => goToSlide(idx)}
-                />
-              ))}
+              <div className="financial-dots">
+                {Array.from({ length: maxIndex + 1 }).map((_, idx) => (
+                  <button
+                    key={idx}
+                    type="button"
+                    className={`financial-dot ${idx === activeIndex ? "is-active" : ""}`}
+                    aria-label={`رفتن به اسلاید ${idx + 1}`}
+                    onClick={() => goToSlide(idx)}
+                  />
+                ))}
+              </div>
+
+              <button
+                type="button"
+                className="financial-nav-btn"
+                onClick={handleNext}
+                aria-label="پلن بعدی"
+              >
+                <i className="bi bi-chevron-right" />
+              </button>
             </div>
-
-            <button type="button" className="financial-nav-btn" onClick={handleNext} aria-label="پلن بعدی">
-              <i className="bi bi-chevron-right" />
-            </button>
-          </div>
+          )}
         </div>
       </div>
     </section>
@@ -222,4 +299,3 @@ const Financial = () => {
 };
 
 export default Financial;
-

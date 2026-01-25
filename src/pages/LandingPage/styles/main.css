@@ -2075,6 +2075,7 @@ section,
     /*background-color: var(--accent-color);*/
     border-radius: var(--btn-radius);
     border-color: var(--accent-color);
+    color: var(--contrast-color);
   }
 
   .btn:hover {

@@ -1,16 +1,19 @@
 import bannerImage from "../../assets/images/banner/banner.png";
 import "./Banner.css";
+import ImageBox from "./ImageBox";
 
 const Banner = () => {
   return (
     <section id="banner" className="banner section">
       <div className="container">
-        <div
-          className="banner-wrapper"
-          data-aos="fade-up"
-          data-aos-delay="50"
-          style={{ backgroundImage: `url(${bannerImage})` }}
-        >
+        <div className="banner-wrapper" data-aos="fade-up" data-aos-delay="50">
+          <img
+            src={bannerImage}
+            alt="Banner"
+            className="banner-image"
+            loading="lazy"
+          />
+
           <div className="banner-content">
             <p className="banner-eyebrow">یک پلتفرم، چندین ابزار آموزشی</p>
             <h3 className="banner-title">
