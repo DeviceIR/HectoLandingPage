@@ -107,7 +107,7 @@ const Footer = () => {
                   <a
                     key={idx}
                     className="cert-logo"
-                    href="https://enamad.ir"
+                    // href="https://enamad.ir"
                     target="_blank"
                     rel="noreferrer"
                     aria-label="نماد اعتماد الکترونیکی"
