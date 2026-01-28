@@ -1,23 +1,23 @@
-import { useEffect, useCallback, useRef, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { useEffect, useCallback, useRef, useState } from "react";
+import { Link } from "react-router-dom";
 
 const servicesLinks = [
-  { href: '#services', label: 'طراحی مسیر یادگیری' },
-  { href: '#services', label: 'دستیار هوش مصنوعی' },
-  { href: '#services', label: 'تحلیل و گزارش‌گیری' },
-  { href: '#services', label: 'مدیریت محتوا' },
-  { href: '#services', label: 'یادگیری اشتراکی' }
+  { href: "#services", label: "طراحی مسیر یادگیری" },
+  { href: "#services", label: "دستیار هوش مصنوعی" },
+  { href: "#services", label: "تحلیل و گزارش‌گیری" },
+  { href: "#services", label: "مدیریت محتوا" },
+  { href: "#services", label: "یادگیری اشتراکی" },
 ];
 
 const quickLinks = [
-  { href: '#hero', label: 'خانه' },
-  { href: '#about', label: 'درباره ما' },
-  { href: '#services', label: 'خدمات' },
-  { href: '#financial', label: 'پلن‌های مالی' },
-  { href: '#contact', label: 'تماس با ما' }
+  { href: "#hero", label: "خانه" },
+  { href: "#about", label: "درباره ما" },
+  { href: "#services", label: "خدمات" },
+  { href: "#financial", label: "پلن‌های مالی" },
+  { href: "#contact", label: "تماس با ما" },
 ];
 
-const certificateIds = [1, 2, 3, 4];
+const certificateIds = [1, 2, 3];
 
 const Footer = () => {
   const scrollTopRef = useRef(null);
@@ -28,7 +28,7 @@ const Footer = () => {
     e.preventDefault();
     window.scrollTo({
       top: 0,
-      behavior: 'smooth'
+      behavior: "smooth",
     });
   }, []);
 
@@ -44,7 +44,7 @@ const Footer = () => {
       if (rafIdRef.current !== null) {
         cancelAnimationFrame(rafIdRef.current);
       }
-      
+
       rafIdRef.current = requestAnimationFrame(toggleScrollTop);
     };
 
@@ -52,11 +52,11 @@ const Footer = () => {
     toggleScrollTop();
 
     // Add scroll event listener with passive option for better performance
-    window.addEventListener('scroll', handleScroll, { passive: true });
+    window.addEventListener("scroll", handleScroll, { passive: true });
 
     // Cleanup function
     return () => {
-      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener("scroll", handleScroll);
       if (rafIdRef.current !== null) {
         cancelAnimationFrame(rafIdRef.current);
       }
@@ -66,22 +66,43 @@ const Footer = () => {
   useEffect(() => {
     const scrollTopElement = scrollTopRef.current;
     if (scrollTopElement) {
-      scrollTopElement.addEventListener('click', handleScrollTop);
+      scrollTopElement.addEventListener("click", handleScrollTop);
       return () => {
-        scrollTopElement.removeEventListener('click', handleScrollTop);
+        scrollTopElement.removeEventListener("click", handleScrollTop);
       };
     }
   }, [handleScrollTop]);
 
   return (
     <>
-      <footer id="footer" className="footer position-relative dark-background rtl-footer">
+      <footer
+        id="footer"
+        className="footer position-relative dark-background rtl-footer"
+      >
         <div className="container footer-top">
           <div className="footer-grid">
             {/* 1 - Logo & certificates */}
             <div className="footer-section footer-about footer-brand">
               <h4>مجوزها</h4>
-              <div className="certificates" aria-label="گواهی‌ها و نمادهای اعتماد">
+              <div
+                className="certificates"
+                aria-label="گواهی‌ها و نمادهای اعتماد"
+              >
+                <div>
+                  <a
+                    referrerpolicy="origin"
+                    target="_blank"
+                    href="https://trustseal.enamad.ir/?id=700526&Code=IZIZPnIpJiYn1W9WVtmBWaYAfoPHZBRP"
+                  >
+                    <img
+                      referrerpolicy="origin"
+                      src="https://trustseal.enamad.ir/logo.aspx?id=700526&Code=IZIZPnIpJiYn1W9WVtmBWaYAfoPHZBRP"
+                      alt="نماد الکترونیکی ای نماد"
+                      style={{ cursor: "pointer" }}
+                      code="IZIZPnIpJiYn1W9WVtmBWaYAfoPHZBRP"
+                    />
+                  </a>
+                </div>
                 {certificateIds.map((idx) => (
                   <a
                     key={idx}
@@ -93,7 +114,13 @@ const Footer = () => {
                   >
                     <svg viewBox="0 0 64 80" role="img" aria-hidden="true">
                       <defs>
-                        <linearGradient id={`enamadGrad${idx}`} x1="0%" y1="0%" x2="0%" y2="100%">
+                        <linearGradient
+                          id={`enamadGrad${idx}`}
+                          x1="0%"
+                          y1="0%"
+                          x2="0%"
+                          y2="100%"
+                        >
                           <stop offset="0%" stopColor="#5a32a3" />
                           <stop offset="100%" stopColor="#7b5cf6" />
                         </linearGradient>
@@ -161,37 +188,41 @@ const Footer = () => {
               <div className="footer-contact">
                 <p>تهران، خیابان مثال، پلاک ۱۰۸</p>
                 <p>کد پستی ۱۱۲۲۳۴۵۶۷۸</p>
-                <p className="mt-3"><strong>تلفن:</strong> <span>۰۲۱-۱۲۳۴۵۶۷۸</span></p>
-                <p><strong>ایمیل:</strong> <span>info@hecto.ir</span></p>
+                <p className="mt-3">
+                  <strong>تلفن:</strong> <span>۰۲۱-۱۲۳۴۵۶۷۸</span>
+                </p>
+                <p>
+                  <strong>ایمیل:</strong> <span>info@hecto.ir</span>
+                </p>
               </div>
               <div className="social-links d-flex mt-2">
-                <a 
-                  href="https://twitter.com" 
-                  target="_blank" 
+                <a
+                  href="https://twitter.com"
+                  target="_blank"
                   rel="noopener noreferrer"
                   aria-label="توییتر"
                 >
                   <i className="bi bi-twitter-x"></i>
                 </a>
-                <a 
-                  href="https://facebook.com" 
-                  target="_blank" 
+                <a
+                  href="https://facebook.com"
+                  target="_blank"
                   rel="noopener noreferrer"
                   aria-label="فیسبوک"
                 >
                   <i className="bi bi-facebook"></i>
                 </a>
-                <a 
-                  href="https://instagram.com" 
-                  target="_blank" 
+                <a
+                  href="https://instagram.com"
+                  target="_blank"
                   rel="noopener noreferrer"
                   aria-label="اینستاگرام"
                 >
                   <i className="bi bi-instagram"></i>
                 </a>
-                <a 
-                  href="https://linkedin.com" 
-                  target="_blank" 
+                <a
+                  href="https://linkedin.com"
+                  target="_blank"
                   rel="noopener noreferrer"
                   aria-label="لینکدین"
                 >
@@ -203,27 +234,26 @@ const Footer = () => {
         </div>
 
         <div className="container copyright text-center mt-4">
-          <p>© <strong className="px-1 sitename">هکتو</strong> تمامی حقوق محفوظ است</p>
-          <div className="credits">
-            طراحی شده توسط تیم هکتو
-          </div>
+          <p>
+            © <strong className="px-1 sitename">هکتو</strong> تمامی حقوق محفوظ
+            است
+          </p>
+          <div className="credits">طراحی شده توسط تیم هکتو</div>
         </div>
       </footer>
 
       {/* Scroll Top */}
-      <a 
+      <a
         ref={scrollTopRef}
-        href="#" 
-        className={`scroll-top d-flex align-items-center justify-content-center ${isScrollTopVisible ? 'active' : ''}`}
+        href="#"
+        className={`scroll-top d-flex align-items-center justify-content-center ${isScrollTopVisible ? "active" : ""}`}
         aria-label="بازگشت به بالا"
         onClick={handleScrollTop}
       >
         <i className="bi bi-arrow-up-short" aria-hidden="true"></i>
       </a>
-
     </>
   );
 };
 
 export default Footer;
-

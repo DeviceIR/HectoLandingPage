@@ -1,7 +1,7 @@
-import { useEffect, useRef } from 'react';
-import { Link } from 'react-router-dom';
-import lottie from 'lottie-web';
-import heroAnimation from '../../assets/animations/hero.json';
+import { useEffect, useRef } from "react";
+import { Link } from "react-router-dom";
+import lottie from "lottie-web";
+import heroAnimation from "../../assets/animations/hero.json";
 
 const Hero = () => {
   const lottieContainerRef = useRef(null);
@@ -10,10 +10,10 @@ const Hero = () => {
     if (lottieContainerRef.current) {
       const anim = lottie.loadAnimation({
         container: lottieContainerRef.current,
-        renderer: 'svg',
+        renderer: "svg",
         loop: true,
         autoplay: true,
-        animationData: heroAnimation
+        animationData: heroAnimation,
       });
 
       return () => {
@@ -30,13 +30,18 @@ const Hero = () => {
             <div className="hero-content">
               <h1>سفر جدید, دیدگاه جدید</h1>
               <p>
-                ما مسیر زمان آموزش آنلاین را بهینه و ساختار سنتی آن را هوشمند و متماییز میکنیم این پلتفرم با
-                ابزارهای تحلیلی و دستیار هوش مصنوعی با ارائه گزارش‌های دقیق و پایش عملکرد، امکان ارتقای سطح
-                کیفی آموزش و یادگیری و افزایش راندمان در مقیاس فردی و سازمانی را فراهم میسازد
+                هکتو یه پلتفرم هوشمنده برای مدیریت و بهینه‌سازی آموزش آنلاین. با
+                کمک ابزارهای تحلیلی و دستیار هوش مصنوعی، بهت کمک می‌کنیم عملکرد
+                آموزش رو دقیق ببینی و تجربه یادگیری بهتری برای خودت یا تیمت
+                بسازی.
               </p>
               <div className="hero-buttons">
-                <Link to="/login" className="btn btn-primary">شروع کنید</Link>
-                <a href="#about" className="btn btn-outline">درباره ما</a>
+                <Link to="/login" className="btn btn-primary">
+                  شروع کنید
+                </Link>
+                {/* <a href="#about" className="btn btn-outline">
+                  درباره ما
+                </a> */}
               </div>
             </div>
           </div>
@@ -44,7 +49,11 @@ const Hero = () => {
             <div className="hero-visual">
               <div className="hero-image">
                 <div className="hero-illustration">
-                  <div ref={lottieContainerRef} id="lottie-container" className="hero-lottie"></div>
+                  <div
+                    ref={lottieContainerRef}
+                    id="lottie-container"
+                    className="hero-lottie"
+                  ></div>
                 </div>
               </div>
             </div>
@@ -56,4 +65,3 @@ const Hero = () => {
 };
 
 export default Hero;
-

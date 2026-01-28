@@ -1,4 +1,64 @@
+import React from "react";
+// Import your icons - adjust the paths based on your actual file structure
+import OptimizedUI from "@/pages/LandingPage/assets/icons/optimized-ui.svg"; // برای "رابط کاربری بهینه و متعامل"
+import AIAssistant from "@/pages/LandingPage/assets/icons/ai-assistant.svg"; // برای "دستیار هوش مصنوعی"
+import Analytics from "@/pages/LandingPage/assets/icons/analytics.svg"; // برای "گزارش گیری و مانیتورینگ"
+import DeepLearning from "@/pages/LandingPage/assets/icons/deep-learning.svg"; // برای "یادگیری عمیق و اشتراکی"
+import ContentManagement from "@/pages/LandingPage/assets/icons/content-management.svg"; // برای "مدیریت هوشمند محتوا"
+import UserManagement from "@/pages/LandingPage/assets/icons/user-management.svg"; // برای "مدیریت چند لایه ای کاربران"
+
 const Services = () => {
+  const services = [
+    {
+      id: 1,
+      icon: OptimizedUI,
+      title: "رابط کاربری بهینه و متعامل",
+      description:
+        "با کمترین پیچیدگی‌، در فضای کاربری منحصر به فرد تجربه یادگیری و مدیریت متفاوتی داشته باشید.",
+      delay: "0",
+    },
+    {
+      id: 2,
+      icon: AIAssistant,
+      title: "دستیار هوش مصنوعی",
+      description:
+        "طراحی و ساخت مسیر‌های اختصاصی یادگیری،آموزش و مدیریت به کمک دستیار های هوش مصنوعی.",
+      delay: "50",
+    },
+    {
+      id: 3,
+      icon: Analytics,
+      title: "گزارش گیری و مانیتورینگ",
+      description:
+        "آنلایز و بررسی دقیق داده های آموزشی و تحلیل رفتار و عملکرد کاربران در فضاهای کاری.",
+      delay: "100",
+    },
+    {
+      id: 4,
+      icon: DeepLearning,
+      title: "یادگیری عمیق و اشتراکی",
+      description:
+        "از طریق فرآیند سازی و یادگیری بهینه و عمیق٬ سطح آموزه ها و دانش خود را به حداکثر برسانید.",
+      delay: "150",
+    },
+    {
+      id: 5,
+      icon: ContentManagement,
+      title: "مدیریت هوشمند محتوا",
+      description:
+        "با کمترین کلیک و به کمک هوش مصنوعی محتواهای نامحدود به اشتراک بگذارید.",
+      delay: "50",
+    },
+    {
+      id: 6,
+      icon: UserManagement,
+      title: "مدیریت چند لایه ای کاربران",
+      description:
+        "فضاهای کاری و گروه های تفکیک شده بسازید هر کدام را در بالاترین سطح ممکن مدیریت کنید.",
+      delay: "100",
+    },
+  ];
+
   return (
     <section id="services" className="services section">
       {/* Section Title */}
@@ -12,128 +72,30 @@ const Services = () => {
 
       <div className="container" data-aos="fade-up" data-aos-delay="0">
         <div className="row gy-4">
-          <div
-            className="col-lg-4 col-md-6"
-            data-aos="fade-up"
-            data-aos-delay="0"
-          >
-            <div className="service-card">
-              <div className="service-icon">
-                <i className="bi bi-palette"></i>
+          {services.map((service) => (
+            <div
+              key={service.id}
+              className="col-lg-4 col-md-6"
+              data-aos="fade-up"
+              data-aos-delay={service.delay}
+            >
+              <div className="service-card">
+                <div
+                  className="service-icon"
+                  style={{ backgroundColor: "#fff" }}
+                >
+                  {/* Using SVG icon */}
+                  <img src={service.icon} alt={service.title} />
+                </div>
+                <h4>{service.title}</h4>
+                <p>{service.description}</p>
               </div>
-              <h4>رابط کاربری بهینه و متعامل</h4>
-              <p>
-                با کمترین پیچیدگی‌، در فضای کاربری منحصر به فرد تجربه یادگیری و
-                مدیریت متفاوتی داشته باشید.
-              </p>
             </div>
-          </div>
-
-          <div
-            className="col-lg-4 col-md-6"
-            data-aos="fade-up"
-            data-aos-delay="50"
-          >
-            <div className="service-card">
-              <div className="service-icon">
-                <i className="bi bi-layout-text-window-reverse"></i>
-              </div>
-              <h4>دستیار هوش مصنوعی</h4>
-              <p>
-                طراحی و ساخت مسیر‌های اختصاصی یادگیری،آموزش و مدیریت به کمک
-                دستیار های هوش مصنوعی.
-              </p>
-            </div>
-          </div>
-
-          <div
-            className="col-lg-4 col-md-6"
-            data-aos="fade-up"
-            data-aos-delay="100"
-          >
-            <div className="service-card">
-              <div className="service-icon">
-                <i className="bi bi-code-slash"></i>
-              </div>
-              <h4>گزارش گیری و مانیتورینگ</h4>
-              <p>
-                آنلایز و بررسی دقیق داده های آموزشی و تحلیل رفتار و عملکرد
-                کاربران در فضاهای کاری.
-              </p>
-            </div>
-          </div>
-
-          <div
-            className="col-lg-4 col-md-6"
-            data-aos="fade-up"
-            data-aos-delay="150"
-          >
-            <div className="service-card">
-              <div className="service-icon">
-                <i className="bi bi-phone"></i>
-              </div>
-              <h4>یادگیری عمیق و اشتراکی</h4>
-              <p>
-                از طریق فرآیند سازی و یادگیری بهینه و عمیق٬ سطح آموزه ها و دانش
-                خود را به حداکثر برسانید.
-              </p>
-            </div>
-          </div>
-
-          <div
-            className="col-lg-4 col-md-6"
-            data-aos="fade-up"
-            data-aos-delay="50"
-          >
-            <div className="service-card">
-              <div className="service-icon">
-                <i className="bi bi-megaphone"></i>
-              </div>
-              <h4>مدیریت هوشمند محتوا</h4>
-              <p>
-                با کمترین کلیک و به کمک هوش مصنوعی محتواهای نامحدود به اشتراک
-                بگذارید.
-              </p>
-            </div>
-          </div>
-
-          <div
-            className="col-lg-4 col-md-6"
-            data-aos="fade-up"
-            data-aos-delay="100"
-          >
-            <div className="service-card">
-              <div className="service-icon">
-                <i className="bi bi-search"></i>
-              </div>
-              <h4>مدیریت چند لایه ای کاربران</h4>
-              <p>
-                فضاهای کاری و گروه های تفکیک شده بسازید هر کدام را در بالاترین
-                سطح ممکن مدیریت کنید.
-              </p>
-            </div>
-          </div>
+          ))}
         </div>
-
-        {/* <div className="row mt-5">
-          <div
-            className="col-12 text-center"
-            data-aos="fade-up"
-            data-aos-delay="400"
-          >
-            <div className="services-cta">
-              <h3>آماده‌ای تجربه یادگیری خود را متحول کنی؟</h3>
-              <p>بیایید با هم مسیر آموزش هوشمند را آغاز کنیم</p>
-              <Link to="/login" className="btn btn-primary">
-                شروع کنید
-              </Link>
-            </div>
-          </div>
-        </div> */}
       </div>
     </section>
   );
 };
 
 export default Services;
-

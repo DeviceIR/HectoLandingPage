@@ -192,7 +192,7 @@ const Contact = () => {
                   <div className="contact-field">
                     <textarea
                       className={`form-control contact-input contact-textarea ${formErrors.message ? "is-invalid" : ""}`}
-                      style={{ height: "200px" }}
+                      style={{ height: "280px" }}
                       name="message"
                       rows="4"
                       placeholder="توضیحات"

@@ -18,13 +18,6 @@ const BranchCard = ({ branchData, onLocationClick }) => {
           className="branch-card"
           style={{ display: "flex", flexDirection: "row" }}
         >
-          <div
-            className="branch-image"
-            style={{ width: "180px", height: "180px" }}
-          >
-            <img src={image} alt={title} />
-          </div>
-
           <div className="branch-body">
             <h3>{title}</h3>
             <div className="branch-meta">
@@ -47,6 +40,12 @@ const BranchCard = ({ branchData, onLocationClick }) => {
             >
               دریافت لوکیشن
             </button> */}
+          </div>
+          <div
+            className="branch-image"
+            style={{ width: "180px", height: "180px" }}
+          >
+            <img src={image} alt={title} />
           </div>
         </div>
       </div>
